@@ -151,11 +151,16 @@ label{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (max-width: 1700px) {
 
     .register {
         width: 150%;
         max-width: 450px;
+    }
+
+    .password-w-generate{
+        column-gap: 5.5rem;
+    
     }
     
 }
