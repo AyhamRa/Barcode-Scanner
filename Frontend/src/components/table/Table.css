@@ -1,0 +1,79 @@
+.table-container table thead th{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F));
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: 1px solid #0070A8;
+  }
+  
+.table-container table td,
+.table-container table th {
+    padding: 15px 12px;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+  
+table {
+    width: 100%;
+    max-width: 60%;
+    height: 20px;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td,
+th {
+  border: 1px solid black;
+  text-align: left;
+}
+
+td:nth-child(1) {
+    width: 5%;
+  }
+
+  td:nth-child(2),
+  th:nth-child(2) {
+    width: 10%;
+  }
+
+  td:nth-child(3),
+  th:nth-child(3) {
+    width: 30%;
+  }
+
+  td:nth-child(4),
+  th:nth-child(4) {
+    width: 15%;
+  }
+
+  td:nth-child(5),
+  th:nth-child(5) {
+    width: 60%;
+  }
+
+tr:nth-child(even) { 
+  background-color: #afc4d1;  
+  /* #5e333b4f */
+
+}
+
+table th {
+  background-color: #e8e8e8 !important;
+}
+
+
+table th{
+  background-color: lightgray; 
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.checkbox{
+  border: none;
+  background-color: transparent;
+  height: auto;
+}

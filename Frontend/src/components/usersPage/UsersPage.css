@@ -1,0 +1,108 @@
+
+.users {
+    margin-left: 100px;
+    margin-top: 55px;
+    font-size: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+    width: 100%;
+    max-width: 750px;
+    padding: 25px;
+    box-sizing: border-box;
+    max-height: 700px;
+    overflow-y: auto;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.719);
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.104);
+    row-gap: 3rem;
+    border: 1px solid lightgray;
+    border-radius: 5px; */
+}
+
+.users table thead th{
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F));
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: bold;
+  border-left: 1px solid #0070A8;
+
+}
+
+.users table th {
+    padding: 18px 60px;
+}
+
+.users td,
+.users th {
+    text-align: center;
+}
+
+.users table td {
+  padding: 15px;
+}
+  
+.users td {
+  border: 0;
+}
+
+/* .users tr:nth-child(even) td {
+  background-color: #e6e6e6; 
+}
+
+.users tr:nth-child(odd) td {
+  background-color: #f2f2f2;
+} */
+
+#delete {
+    position: relative;
+    -webkit-box-align: center;
+    padding: 5px 10px;
+    align-items: center;
+    border: 0px;
+    border-radius: 6px;
+    box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-left: 10px;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    opacity: 1;
+    outline: 0px;
+    transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    background-color: #9C0D38;
+    cursor: pointer;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  #edit  {
+    position: relative;
+    -webkit-box-align: center;
+    padding: 5px 10px;
+    align-items: center;
+    border: 0px;
+    border-radius: 6px;
+    box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    -webkit-box-pack: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    opacity: 1;
+    outline: 0px;
+    transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    background-color: #9C0D38;
+    cursor: pointer;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }

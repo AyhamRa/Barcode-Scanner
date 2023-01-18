@@ -1,0 +1,64 @@
+.profile {
+    margin-left: 140px;
+    margin-top: 80px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 500px;
+    padding: 50px;
+    box-sizing: border-box;
+    max-height: 300px;
+    background-color: rgba(255, 255, 255, 0.719);
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.104);
+    row-gap: 1.5rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.username-container,
+.password-container,
+.role-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+}
+
+#edit {
+    position: relative;
+    -webkit-box-align: center;
+    padding: 5px 10px;
+    align-items: center;
+    border: 0px;
+    border-radius: 6px;
+    box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    -webkit-box-pack: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    opacity: 1;
+    outline: 0px;
+    transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    background-color: #9C0D38;
+    cursor: pointer;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+.profile label {
+  display: inline-block;
+  width: 120px;
+  text-align: left;
+}
+
+.profile div {
+  display: inline-block;
+  margin-left: 10px;
+}

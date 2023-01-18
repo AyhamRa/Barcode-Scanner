@@ -1,0 +1,59 @@
+.setting-page {
+    width :100vw;
+    height: 100vh;
+    display: flex; 
+    background-color: #DFDFDF;
+}
+
+body {
+    margin:0;
+    padding: 0;
+}
+
+.sidebar {
+    height: 100%;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.719);
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.104);
+}
+
+.component-list {
+    display: grid;
+    grid-template-columns: 1fr ;
+    height: auto;
+    padding: 0;
+    width: 100%;
+}
+
+.component-list .component-row {
+    width : 100%;
+    height: 60px;
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    flex-direction: row;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+}
+
+.component-list .component-row:hover{
+    cursor: pointer;
+    background-color: #cf78914f;
+    color: rgb(86, 86, 86);
+}
+
+.component-list #icon {
+    flex: 30%;
+    display: grid;
+    place-items: center;
+}
+
+.component-list #title {
+    flex: 70%;
+}
+
+.active {
+    background-color: #9C0D38;
+    color: white;
+  }

@@ -1,0 +1,75 @@
+.resetPassword {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    min-height: 92.5vh;
+    max-height: 600px;
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.104);
+    row-gap: 1.5rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.resetPass-form{
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.719);
+    padding: 3rem;
+    border-radius:6px;
+    box-shadow: 3px 4px rgba(0, 0, 0, 0.104);
+    
+}
+
+button{
+    border: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn-reset-pass{
+    height:38px;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    -webkit-box-pack: center;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    opacity: 1;
+    outline: 0px;
+    transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+    background-color: rgb(56, 129, 169);
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 3rem;
+    width: 136%;
+    background-color: #9C0D38;
+    color: white;
+    width: 97%;
+}
+
+.input-reset {
+    width: 90%;
+}
+
+.btn-secret-phrase{
+    background: none;
+    color: rgba(15, 45, 102, 0.916);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+}
