@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./LoginPage.css";
-import ResetPassword from "../resetPass/resetPass";
+import ResetPassword from "../resetPass/ResetPass";
 import decodeJwt from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 

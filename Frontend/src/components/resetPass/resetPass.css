@@ -73,3 +73,11 @@ button{
     cursor: pointer;
     font-size: 14px;
 }
+
+@media only screen and (min-width: 500px) {
+
+    .input-reset {
+        width: 90%;
+    }
+    
+}
