@@ -28,15 +28,21 @@ function UsersPage( {token} ) {
     getUsers();
   }, []);
 
+  // Delete the users
   const handleDelete = (id) => {
     // Make the DELETE request to delete the user with the specified ID
     if (id == 1) {
       return;
     }
     const url = `http://localhost:3000/delete-user`;
+    const config = {
+      headers: {
+        token: token,
+      },
+    };
     const deleteUser = async () => {
       try {
-        const response = await axios.post(url, { id });
+        const response = await axios.post(url, { id }, config);
 
         if (response.status === 200) {
           toast.success("deleted", {

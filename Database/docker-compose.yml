@@ -1,4 +1,5 @@
 # Use root/example as user/password credentials
+
 version: '3.1'
 
 services:
@@ -7,23 +8,44 @@ services:
     image: mysql
     # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
     # (this is just an example, not intended to be a production configuration)
+
     command: 
       - --default-authentication-plugin=mysql_native_password
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
         - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:ro
         - dbdata:/var/lib/mysql
     restart: always
-
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: 'KDC'
+
+  backend:
+    build:
+      context: ../Backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ../Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
 
   phpmyadmin:
     image: phpmyadmin
     restart: always
     ports:
-      - 8080:80
+      - "8080:80"
+
 volumes: 
   dbdata:

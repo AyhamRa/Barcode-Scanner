@@ -9,7 +9,7 @@ import util from 'util';
 
 
 const connection = mysql.createConnection({
-  host     : 'localhost',
+  host     : 'db',
   user     : 'root',
   password : 'example',
   database : 'KDC'

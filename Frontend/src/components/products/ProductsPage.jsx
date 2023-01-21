@@ -14,7 +14,6 @@ function ProductsPage({ token, currentUser, search }) {
     const fetchBarcodes = async () => {
       // Send a GET request to the endpoint that retrieves the stored barcodes
       console.log(token);
-      console.log("hello world");
       const url = "http://localhost:3000/products";
       const config = {
         headers: {
@@ -24,11 +23,10 @@ function ProductsPage({ token, currentUser, search }) {
       try {
         // Send the request
         const response = await axios.get(url, config);
-
         // If the request is successful, set the barcodes state with the response data
         const data = response.data;
         data.barcods;
-        console.log("my world", data);
+        // console.log("my world", data);
         setListOfScannedBarCodes(data);
       } catch (error) {
         console.error(error);
@@ -47,8 +45,13 @@ function ProductsPage({ token, currentUser, search }) {
     let temp = [];
 
     const url = "http://localhost:3000/api/delete";
+    const config = {
+      headers: {
+        token: token,
+      },
+    };
 
-    const response = await axios.post(url, selectedToDelete);
+    const response = await axios.post(url, selectedToDelete, config);
     const data = response.data;
     if (data.success == 200) {
       listOfScannedBarCodes.forEach((elem) => {

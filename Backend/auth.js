@@ -5,16 +5,17 @@ const check_auth = (req, res, next) => {
   const token = req.headers.token;
   if (token) {
     try {
-      console.log('VERIFIED')
-      const check = jwt.verify(token, "secret");
-      console.log("Check : ", check);
+      // console.log('VERIFIED')
+      const decoded = jwt.verify(token, "secret");
+      req.isAdmin = decoded.data.role === 'admin';
+      req.isModerator = decoded.data.role === 'moderator';
+      // console.log("Check : ", req.isAdmin );
       next();
     } catch (error) {
-      console.log('NOT VERIFIED', error)
-
+      // console.log('NOT VERIFIED', error)
       res.json({ notAutorized: "Not-authorized" });
     }
-  }else{
+  } else {
     res.json({ notAutorized: "Not-authorized" });
   }
 };
@@ -27,10 +28,9 @@ const generateToken = (data) => {
     "secret",
     { expiresIn: "10h" }
   );
-  console.log("this is my token:" + " " + token);
-
+  // console.log("this is my token:" + " " + token);
   return token;
 };
 
 
-export  {check_auth, generateToken};
+export { check_auth, generateToken };

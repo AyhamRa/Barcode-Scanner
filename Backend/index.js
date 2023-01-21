@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken";
 import express from "express";
 import cors from "cors";
 import bcrypt from 'bcryptjs';
@@ -13,12 +12,10 @@ const saltRounds = 10;
 app.use(express.json());
 app.use(cors());
 
-
 // Backend Listinig Port
 app.listen(port, () => {
   console.log(`listneing on port ${port}`);
 });
-
 
 // login Data handlers
 app.post("/login", async (req, res) => {
@@ -88,14 +85,27 @@ app.get('/products', check_auth, async (req, res, next) => {
 
 // get all Users from the Database
 app.get('/users', check_auth, async (req, res, next) => {
+
+  if (!req.isAdmin) {
+    return res.status(401).json({
+      error: "Not authorized",
+    });
+  }
   const users = await getAllUsers();
   res.json(users);
 })
 
 // Delete info from Database
-app.post('/api/delete', async (req, res) => {
+app.post('/api/delete', check_auth, async (req, res) => {
+
+  if (!req.isAdmin && !req.isModerator) {
+    return res.status(401).json({
+      error: "Not authorized",
+    });
+  }
+
   const ids = req.body;
-  console.log(ids)
+  // console.log(ids)
   try {
     const sql = await deleteArticle(ids);  // call deleteRowsQuery function
     if (sql.affectedRows > 0) {
@@ -109,7 +119,15 @@ app.post('/api/delete', async (req, res) => {
   }
 });
 
-app.post('/delete-user', async (req, res) => {
+// Delete User from the Database
+app.post('/delete-user', check_auth, async (req, res) => {
+
+  if (!req.isAdmin) {
+    return res.status(401).json({
+      error: "Not authorized",
+    });
+  }
+
   const { id } = req.body;
   try {
     const sql = await deleteUser(id);
@@ -145,10 +163,16 @@ app.post('/change-password', async (req, res) => {
 
 // Create new Account
 app.post('/register', check_auth, async (req, res) => {
+
+  if (!req.isAdmin) {
+    return res.status(401).json({
+      error: "Not authorized",
+    });
+  }
+
   const { user, password, role } = req.body;
   const hashPassword = await getHash(password);
   // console.log(hashPassword);
-
   if (user == undefined || password == undefined) {
     res.status(400);
     return;
