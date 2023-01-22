@@ -189,7 +189,6 @@ app.post('/register', check_auth, async (req, res) => {
     });
   }
   const hashPassword = await getHash(password);
-  // console.log(hashPassword);
   if (user == undefined || password == undefined) {
     res.status(400);
     return;
