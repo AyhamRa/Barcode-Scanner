@@ -1,7 +1,10 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { faCheck, faTimes, faInfoCircle } 
-from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faTimes,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ChangePassword.css";
 import axios from "axios";
@@ -12,7 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 const passwordRegex =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%.]).{8,24}$/;
 
-function ChangePassword() {
+function ChangePassword({ token }) {
   const [userName, setUserName] = useState("");
 
   const [newPassword, setNewPassword] = useState("");
@@ -68,9 +71,12 @@ function ChangePassword() {
         });
 
         setTimeout(() => {
-          navigate("/login");
+          if (!token) {
+          navigate("/login");}
+          else {
+            navigate("/home");
+          }
         }, 2800);
-        
       }
     } catch (error) {
       if (error.response.status === 403) {

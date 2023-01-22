@@ -81,8 +81,8 @@ function App() {
       <Route path="/secretphrase" element={ <SecretPhrase setCurrentUser={setCurrentUser} currentUser={currentUser}
       setLoggedOn={setLoggedOn}></SecretPhrase>}></Route>
 
-      <Route path="/change-password" element={
-      <ChangePassword ></ChangePassword>}></Route>
+      <Route path="/change-password" element={ <ChangePassword token={accessToken}>
+      </ChangePassword>}></Route>
 
       <Route path="/products" element={accessToken && <ProductsPage token={accessToken} search={search} setCurrentUser={setCurrentUser} currentUser={currentUser}
       setLoggedOn={setLoggedOn}></ProductsPage>}></Route>

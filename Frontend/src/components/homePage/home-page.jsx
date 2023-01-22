@@ -17,8 +17,8 @@ function HomePage({ currentUser, search, accessToken }) {
   useEffect(() => {
     const hasLoggedIn = localStorage.getItem("hasLoggedIn");
     const decodedToken = decodeJwt(accessToken);
-    console.log(!hasLoggedIn && decodedToken.data.role === "admin");
-    if (!hasLoggedIn && decodedToken.data.role === "admin") {
+    console.log(hasLoggedIn === null && decodedToken.data.role === "admin");
+    if (hasLoggedIn && decodedToken.data.role === "admin") {
       setShowPopUp(true);
       localStorage.setItem("hasLoggedIn", true);
       console.log("showPopUp", showPopUp);
@@ -33,7 +33,6 @@ function HomePage({ currentUser, search, accessToken }) {
   // Keyboard shortcuts fuction
   function keyPressed(e) {
     if (e.target != document.body) {
-      console.log("not body");
       return;
     }
 
@@ -115,12 +114,17 @@ function HomePage({ currentUser, search, accessToken }) {
         return row;
       });
 
-    console.log("monir", listOfScannedBarCodes);
+    // console.log("scanned-products", listOfScannedBarCodes);
 
     const url = "http://localhost:3000/products";
+    const config = {
+      headers: {
+        token: accessToken,
+      },
+    };
     let response = null;
     try {
-      response = await axios.post(url, selectedToAdd);
+      response = await axios.post(url, selectedToAdd, config);
     } catch {
       console.log("error");
       return;

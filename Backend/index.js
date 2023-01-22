@@ -59,7 +59,7 @@ app.post('/api/verify-secret-phrase', (req, res) => {
 });
 
 // add product to the Database
-app.post('/products', async (req, res) => {
+app.post('/products', check_auth, async (req, res) => {
   const data = req.body
   console.log(data)
 
@@ -152,6 +152,12 @@ app.post('/delete-user', check_auth, async (req, res) => {
 // change Password
 app.post('/change-password', async (req, res) => {
   const { userName, newPassword } = req.body;
+
+  if (!passwordRegex.test(newPassword)) {
+    return res.status(400).json({
+      error: "Invalid password",
+    });
+  }
   const newHash = await getHash(newPassword);
 
   try {

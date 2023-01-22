@@ -3,7 +3,6 @@ import { useState } from "react";
 import React from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import SettingsPage from "../settingsPage/SettingsPage";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 function Navbar({ currentUser, logout, setSearch, loggedOn }) {

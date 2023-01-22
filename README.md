@@ -10,9 +10,23 @@ KDC-Scanner is a web application for barcode scanning. It allows users to scan b
 
 ## Installation
 
+- Requires installation of npm
+
+  ```bash
+  npm install -g npm
+  ```
+
+## Run the Application
+
 - Open a new Terminal
 
-- Navigate to the Database directory:
+- Navigate to KDC-Scanner directory:
+
+  ```bash
+  cd KDC-Scanner
+  ```
+
+- Afterward navigate to the Database directory:
 
   ```bash
   cd Database
@@ -26,6 +40,15 @@ KDC-Scanner is a web application for barcode scanning. It allows users to scan b
 
 ## Usage
 
-Once the installation is complete, the application can be accessed at http://localhost:3000 for the backend and http://localhost:5173 for the frontend.
+Once the installation is complete, the application can be accessed at:
 
-The application is using a MySQL database that can be accessed at http://localhost:8080 with user root and password example.
+http://localhost:3000 for the backend and 
+
+http://localhost:5173 for the frontend.
+
+The application is using a MySQL database that can be accessed at http://localhost:8080 
+
+  ```bash
+  user: root 
+  password: example
+  ```
