@@ -7,6 +7,12 @@ import { fetch_user, setAccessToken, addArticle, deleteArticle, changePassword, 
 const app = express();
 const port = 3000;
 
+// Username start with a lowercase or upper case letter and then followed by 3 to 23 digits.
+const userNameRegex = /^[A-z][A-z0-9-_]{3,23}$/;
+
+// Password must contain at least one lowercase letter one UpperCase letter on Digits and one speacial character
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%.]).{8,24}$/;
+
 const saltRounds = 10;
 
 app.use(express.json());
@@ -169,8 +175,13 @@ app.post('/register', check_auth, async (req, res) => {
       error: "Not authorized",
     });
   }
-
   const { user, password, role } = req.body;
+
+  if (!userNameRegex.test(user) || !passwordRegex.test(password)) {
+    return res.status(400).json({
+      error: "Invalid username or password",
+    });
+  }
   const hashPassword = await getHash(password);
   // console.log(hashPassword);
   if (user == undefined || password == undefined) {
