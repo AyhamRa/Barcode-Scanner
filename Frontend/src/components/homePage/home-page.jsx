@@ -18,7 +18,7 @@ function HomePage({ currentUser, search, accessToken }) {
     const hasLoggedIn = localStorage.getItem("hasLoggedIn");
     const decodedToken = decodeJwt(accessToken);
     // console.log(hasLoggedIn === null && decodedToken.data.role === "admin");
-    if (hasLoggedIn === null && decodedToken.data.role === "admin") {
+    if (!hasLoggedIn && decodedToken.data.role === "admin") {
       setShowPopUp(true);
       localStorage.setItem("hasLoggedIn", true);
       console.log("showPopUp", showPopUp);
