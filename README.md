@@ -46,9 +46,16 @@ http://localhost:3000 for the backend and
 
 http://localhost:5173 for the frontend.
 
+Use the following username and password to log in:
+
+  ```bash
+  Username: admin
+  Password: admin
+  ```
+
 The application is using a MySQL database that can be accessed at http://localhost:8080 
 
   ```bash
-  user: root 
-  password: example
+  User: root 
+  Password: example
   ```
