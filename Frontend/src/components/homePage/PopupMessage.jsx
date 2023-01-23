@@ -8,7 +8,7 @@ function PopupMessage({ setShowPopUp }) {
         <p>
           Before you start, you need to know about an important security
           feature that we developed to advance the security level of your
-          application. Upon deploying the application, you will be provided with
+          application. Upon Starting the application, you will be provided with
           a unique Secret Phrase. This Secret Phrase is a combination of random
           words that will be used to regain access to your application if you
           ever lost your password.

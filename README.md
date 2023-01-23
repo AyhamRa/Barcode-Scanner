@@ -56,6 +56,12 @@ Use the following username and password to log in:
 The application is using a MySQL database that can be accessed at http://localhost:8080 
 
   ```bash
-  User: root 
+  Username: root 
   Password: example
   ```
+In order to test the secret phrase:
+
+  ```bash
+  Repeat Shadow Fire Voltage Memory Duty Relax Estimated Agency Author Campus Emotion
+  ```
+

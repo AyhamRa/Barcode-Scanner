@@ -65,7 +65,7 @@ function LoginPage({ setCurrentUser, setLoggedOn, currentUser }) {
     e.preventDefault();
     let username = e.target.username.value;
     username = username.toLowerCase();
-    console.log("username", username);
+    // console.log("username", username);
     const password = e.target.password.value;
     await login_request({ username, password });
   };

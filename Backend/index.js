@@ -37,7 +37,6 @@ app.post("/login", async (req, res) => {
   res.status(401).json({
     Error: "Not-Autorized",
   });
-
   return;
 });
 
@@ -101,7 +100,7 @@ app.get('/users', check_auth, async (req, res, next) => {
   res.json(users);
 })
 
-// Delete info from Database
+// Delete Products from Database
 app.post('/api/delete', check_auth, async (req, res) => {
 
   if (!req.isAdmin && !req.isModerator) {
@@ -133,8 +132,14 @@ app.post('/delete-user', check_auth, async (req, res) => {
       error: "Not authorized",
     });
   }
-
   const { id } = req.body;
+
+  if (id === 1) {
+    return res.status(401).json({
+    error: "The first user cannot be deleted",
+    });
+    }
+    
   try {
     const sql = await deleteUser(id);
     if (sql.affectedRows > 0) {
@@ -152,6 +157,11 @@ app.post('/delete-user', check_auth, async (req, res) => {
 // change Password
 app.post('/change-password', async (req, res) => {
   const { userName, newPassword } = req.body;
+
+  if (userName == undefined || newPassword == undefined) {
+    res.status(400);
+    return;
+  }
 
   if (!passwordRegex.test(newPassword)) {
     return res.status(400).json({
@@ -175,7 +185,7 @@ app.post('/change-password', async (req, res) => {
 
 // Create new Account
 app.post('/register', check_auth, async (req, res) => {
-
+  // check auth.js
   if (!req.isAdmin) {
     return res.status(401).json({
       error: "Not authorized",
@@ -183,16 +193,18 @@ app.post('/register', check_auth, async (req, res) => {
   }
   const { user, password, role } = req.body;
 
+  if (user == undefined || password == undefined) {
+    res.status(400);
+    return;
+  }
+
   if (!userNameRegex.test(user) || !passwordRegex.test(password)) {
     return res.status(400).json({
       error: "Invalid username or password",
     });
   }
+
   const hashPassword = await getHash(password);
-  if (user == undefined || password == undefined) {
-    res.status(400);
-    return;
-  }
   try {
     const sql = await registerNewAccount(user, hashPassword, role)
     if (sql.affectedRows > 0) {
@@ -223,7 +235,7 @@ const validate_login_request = async (resUser, req_body) => {
   return match
 };
 
-// Hash Passwords before saving them to the database
+// Hash Passwords before storing database
 const getHash = async (data) => {
   console.log("this is my data", data)
   try {
